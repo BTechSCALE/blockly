@@ -34,11 +34,11 @@ goog.require('Blockly.utils.xml');
  */
 Blockly.Xml.workspaceToDom = function(workspace, opt_noId) {
   var xml = Blockly.utils.xml.createElement('xml');
-  var variablesElement = Blockly.Xml.variablesToDom(
-      Blockly.Variables.allUsedVarModels(workspace));
-  if (variablesElement.hasChildNodes()) {
-    xml.appendChild(variablesElement);
-  }
+  // var variablesElement = Blockly.Xml.variablesToDom(
+  //     Blockly.Variables.allUsedVarModels(workspace));
+  // if (variablesElement.hasChildNodes()) {
+  //   xml.appendChild(variablesElement);
+  // }
   var comments = workspace.getTopComments(true);
   for (var i = 0, comment; (comment = comments[i]); i++) {
     xml.appendChild(comment.toXmlWithXY(opt_noId));
@@ -794,7 +794,7 @@ Blockly.Xml.domToBlockHeadless_ = function(xmlBlock, workspace) {
       }
     }
     // Ensure this block doesn't have any variable inputs.
-    if (block.getVarModels().length) {
+    if (block.getVars().length) {
       throw TypeError('Shadow blocks cannot have variable references.');
     }
     block.setShadow(true);

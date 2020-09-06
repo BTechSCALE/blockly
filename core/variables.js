@@ -40,27 +40,7 @@ Blockly.Variables.NAME_TYPE = Blockly.VARIABLE_CATEGORY_NAME;
  * @return {!Array.<!Blockly.VariableModel>} Array of variable models.
  */
 Blockly.Variables.allUsedVarModels = function(ws) {
-  var blocks = ws.getAllBlocks(false);
-  var variableHash = Object.create(null);
-  // Iterate through every block and add each variable to the hash.
-  for (var i = 0; i < blocks.length; i++) {
-    var blockVariables = blocks[i].getVarModels();
-    if (blockVariables) {
-      for (var j = 0; j < blockVariables.length; j++) {
-        var variable = blockVariables[j];
-        var id = variable.getId();
-        if (id) {
-          variableHash[id] = variable;
-        }
-      }
-    }
-  }
-  // Flatten the hash into a list.
-  var variableList = [];
-  for (var id in variableHash) {
-    variableList.push(variableHash[id]);
-  }
-  return variableList;
+  console.warn('Deprecated after porting to support local variables.');
 };
 
 /**
@@ -448,12 +428,13 @@ Blockly.Variables.nameUsedWithAnyType = function(name, workspace) {
  */
 Blockly.Variables.generateVariableFieldDom = function(variableModel) {
   /* Generates the following XML:
-   * <field name="VAR" id="goKTKmYJ8DhVHpruv" variabletype="int">foo</field>
+   * <field name="VAR" type="int" dist="p" spec="*">foo</field>
    */
   var field = Blockly.utils.xml.createElement('field');
   field.setAttribute('name', 'VAR');
-  field.setAttribute('id', variableModel.getId());
-  field.setAttribute('variabletype', variableModel.type);
+  for (key in ['type', 'dist', 'spec']) {
+    field.setAttribute(key, variableModel[key]);
+  }
   var name = Blockly.utils.xml.createTextNode(variableModel.name);
   field.appendChild(name);
   return field;
@@ -473,13 +454,7 @@ Blockly.Variables.generateVariableFieldDom = function(variableModel) {
  */
 Blockly.Variables.getOrCreateVariablePackage = function(workspace, id, opt_name,
     opt_type) {
-  var variable = Blockly.Variables.getVariable(workspace, id, opt_name,
-      opt_type);
-  if (!variable) {
-    variable = Blockly.Variables.createVariable_(workspace, id, opt_name,
-        opt_type);
-  }
-  return variable;
+  console.warn('Deprecated. Variables are local and not tied to any workspace.');
 };
 
 /**
@@ -583,3 +558,20 @@ Blockly.Variables.getAddedVariables = function(workspace, originalVariables) {
   }
   return addedVariables;
 };
+
+Blockly.Variables.paramToString = function(param) {
+  var p = param.type;
+  if (param.dist == 'v') {
+    p += ' ';
+  } else if (param.dist == 'r') {
+    p += ' &';
+  } else if (param.dist == 'p') {
+    p += '* ';
+  }
+  p += param.name;
+
+  if (param.dist == 'a') {
+    p += '[]';
+  }
+  return p;
+}

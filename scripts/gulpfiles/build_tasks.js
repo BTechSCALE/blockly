@@ -426,6 +426,7 @@ function buildLangfiles(done) {
   --key_file ${path.join('msg', 'json', 'keys.json')} \
   --output_dir ${path.join('msg', 'js')} \
   --quiet ${json_files.join(' ')}`;
+    console.log(createMessagesCmd);
     execSync(createMessagesCmd, { stdio: 'inherit' });
 
   done();

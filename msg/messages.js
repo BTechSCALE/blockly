@@ -1628,3 +1628,14 @@ Blockly.Msg.WORKSPACE_ARIA_LABEL = 'Blockly Workspace';
 /// that block have warnings attached to them. It should inform the user that the
 /// block they collapsed contains blocks that have warnings.
 Blockly.Msg.COLLAPSED_WARNINGS_WARNING = 'Collapsed blocks contain warnings.';
+
+Blockly.Msg.VARIABLES_SET_TYPE_INT = 'integer';
+Blockly.Msg.VARIABLES_SET_TYPE_UNSIGNED_INT = 'unsigned int';
+Blockly.Msg.VARIABLES_SET_TYPE_FLOAT = 'real number(float)';
+Blockly.Msg.VARIABLES_SET_TYPE_DOUBLE = 'real number(double)';
+Blockly.Msg.VARIABLES_SET_TYPE_CHAR = 'character';
+Blockly.Msg.VARIABLES_SET_TYPE_STRING = 'string';
+Blockly.Msg.VARIABLES_SET_DIST_VARIABLE = 'variable';
+Blockly.Msg.VARIABLES_SET_DIST_REFERENCE = 'reference';
+Blockly.Msg.VARIABLES_SET_DIST_POINTER = 'pointer';
+Blockly.Msg.VARIABLES_SET_DIST_ARRAY = 'array';

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2020-06-25 16:02:02.440339",
+		"lastupdated": "2020-09-06 10:43:08.267456",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -404,5 +404,15 @@
 	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
 	"WORKSPACE_COMMENT_DEFAULT_TEXT": "Say something...",
 	"WORKSPACE_ARIA_LABEL": "Blockly Workspace",
-	"COLLAPSED_WARNINGS_WARNING": "Collapsed blocks contain warnings."
+	"COLLAPSED_WARNINGS_WARNING": "Collapsed blocks contain warnings.",
+	"VARIABLES_SET_TYPE_INT": "integer",
+	"VARIABLES_SET_TYPE_UNSIGNED_INT": "unsigned int",
+	"VARIABLES_SET_TYPE_FLOAT": "real number(float)",
+	"VARIABLES_SET_TYPE_DOUBLE": "real number(double)",
+	"VARIABLES_SET_TYPE_CHAR": "character",
+	"VARIABLES_SET_TYPE_STRING": "string",
+	"VARIABLES_SET_DIST_VARIABLE": "variable",
+	"VARIABLES_SET_DIST_REFERENCE": "reference",
+	"VARIABLES_SET_DIST_POINTER": "pointer",
+	"VARIABLES_SET_DIST_ARRAY": "array"
 }

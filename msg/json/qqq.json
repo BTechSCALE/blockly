@@ -398,5 +398,15 @@
 	"PROCEDURES_IFRETURN_WARNING": "warning - This appears if the user tries to use this block outside of a function definition.",
 	"WORKSPACE_COMMENT_DEFAULT_TEXT": "comment text - This text appears in a new workspace comment, to hint that the user can type here.",
 	"WORKSPACE_ARIA_LABEL": "workspace - This text is read out when a user navigates to the workspace while using a screen reader.",
-	"COLLAPSED_WARNINGS_WARNING": "warning - This appears if the user collapses a block, and blocks inside that block have warnings attached to them. It should inform the user that the block they collapsed contains blocks that have warnings."
+	"COLLAPSED_WARNINGS_WARNING": "warning - This appears if the user collapses a block, and blocks inside that block have warnings attached to them. It should inform the user that the block they collapsed contains blocks that have warnings.",
+	"VARIABLES_SET_TYPE_INT": "",
+	"VARIABLES_SET_TYPE_UNSIGNED_INT": "",
+	"VARIABLES_SET_TYPE_FLOAT": "",
+	"VARIABLES_SET_TYPE_DOUBLE": "",
+	"VARIABLES_SET_TYPE_CHAR": "",
+	"VARIABLES_SET_TYPE_STRING": "",
+	"VARIABLES_SET_DIST_VARIABLE": "",
+	"VARIABLES_SET_DIST_REFERENCE": "",
+	"VARIABLES_SET_DIST_POINTER": "",
+	"VARIABLES_SET_DIST_ARRAY": ""
 }

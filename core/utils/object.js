@@ -38,6 +38,19 @@ Blockly.utils.object.mixin = function(target, source) {
 };
 
 /**
+ * Copies all the members of a source object to a target object without overwritting existing members.
+ * @param {!Object} target Target.
+ * @param {!Object} source Source.
+ */
+Blockly.utils.object.mixout = function(target, source) {
+  for (var x in source) {
+    if (!(x in target)) {
+      target[x] = source[x];
+    }
+  }
+};
+
+/**
  * Complete a deep merge of all members of a source object with a target object.
  * @param {!Object} target Target.
  * @param {!Object} source Source.

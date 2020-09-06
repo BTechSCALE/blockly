@@ -560,14 +560,12 @@ Blockly.Variables.getAddedVariables = function(workspace, originalVariables) {
 };
 
 Blockly.Variables.paramToString = function(param) {
-  var p = param.type;
-  if (param.dist == 'v') {
-    p += ' ';
-  } else if (param.dist == 'r') {
-    p += ' &';
+  var p = param.type + ' ';
+  if (param.dist == 'r') {
+    p += '&';
   } else if (param.dist == 'p') {
-    p += '* ';
-  }
+    p += '*';
+
   p += param.name;
 
   if (param.dist == 'a') {

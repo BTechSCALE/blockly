@@ -185,13 +185,13 @@ Blockly.Blocks['procedures_defnoreturn'] = {
     for (var i = 0; i < this.parameters_.length; i++) {
       var argBlockNode = Blockly.utils.xml.createElement('block');
       argBlockNode.setAttribute('type', 'procedures_mutatorarg');
-      var fieldNode = Blockly.utils.xml.createElement('field');
       for (var key in this.parameters_[i]) {
-        fieldNode.setAttribute(key, this.parameters_[i][key]);
+        var fieldNode = Blockly.utils.xml.createElement('field');
+        fieldNode.setAttribute('name', key.toUpperCase());
+        var argumentName = Blockly.utils.xml.createTextNode(this.parameters_[i][key]);
+        fieldNode.appendChild(argumentName);
+        argBlockNode.appendChild(fieldNode);
       }
-      var argumentName = Blockly.utils.xml.createTextNode(this.parameters_[i][key]);
-      fieldNode.appendChild(argumentName);
-      argBlockNode.appendChild(fieldNode);
       var nextNode = Blockly.utils.xml.createElement('next');
       argBlockNode.appendChild(nextNode);
 
@@ -576,6 +576,20 @@ Blockly.Blocks['procedures_mutatorarg'] = {
       if (model.name != newText) {
         outerWs.deleteVariableById(model.getId());
       }
+    }
+  },
+
+  onchange: function(e) {
+    // change block's colour based on its dist
+    switch (this.getFieldValue("DIST")) {
+      case 'v':
+        this.setColour(350); break;
+      case 'r':
+        this.setColour(10); break;
+      case 'p':
+        this.setColour(25); break;
+      case 'a':
+        this.setColour(48); break;
     }
   }
 };

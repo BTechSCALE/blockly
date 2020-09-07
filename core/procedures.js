@@ -243,7 +243,10 @@ Blockly.Procedures.flyoutCategory = function(workspace) {
       block.appendChild(mutation);
       for (var j = 0; j < args.length; j++) {
         var arg = Blockly.utils.xml.createElement('arg');
-        arg.setAttribute('name', args[j]);
+        arg.setAttribute('name', args[j].name);
+        arg.setAttribute('type', args[j].type);
+        arg.setAttribute('dist', args[j].dist);
+        arg.setAttribute('spec', args[j].spec);
         mutation.appendChild(arg);
       }
       xmlList.push(block);
@@ -265,14 +268,14 @@ Blockly.Procedures.flyoutCategory = function(workspace) {
  */
 Blockly.Procedures.updateMutatorFlyout_ = function(workspace) {
   var usedNames = [];
-  var blocks = workspace.getBlocksByType('procedures_mutatorarg_variable', false);
+  var blocks = workspace.getBlocksByType('procedures_mutatorarg', false);
   for (var i = 0, block; (block = blocks[i]); i++) {
     usedNames.push(block.getFieldValue('NAME'));
   }
 
   var xml = Blockly.utils.xml.createElement('xml');
   var argBlock = Blockly.utils.xml.createElement('block');
-  argBlock.setAttribute('type', 'procedures_mutatorarg_variable');
+  argBlock.setAttribute('type', 'procedures_mutatorarg');
   var nameField = Blockly.utils.xml.createElement('field');
   nameField.setAttribute('name', 'NAME');
   var argValue = Blockly.Variables.generateUniqueNameFromOptions(

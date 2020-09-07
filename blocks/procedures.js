@@ -628,6 +628,8 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     // Tooltip is set in renameProcedure.
     this.setHelpUrl(Blockly.Msg['PROCEDURES_CALLNORETURN_HELPURL']);
     this.parameters_ = [];
+    this.quarkConnections_ = {};
+    this.quarkIds_ = null;
     this.previousEnabledState_ = true;
   },
 
@@ -659,24 +661,87 @@ Blockly.Blocks['procedures_callnoreturn'] = {
   /**
    * Notification that the procedure's parameters have changed.
    * @param {!Array.<string>} paramNames New param model, e.g. ['x', 'y', 'z'].
+   * @param {!Array.<string>} paramIds IDs of params (consistent for each
+   *     parameter through the life of a mutator, regardless of param renaming),
+   *     e.g. ['piua', 'f8b_', 'oi.o'].
    * @private
    * @this {Blockly.Block}
    */
-  setProcedureParameters_: function(paramNames) {
+  setProcedureParameters_: function(paramNames, paramIds) {
     // Data structures:
     // this.arguments = ['x', 'y']
     //     Existing param names.
+    // this.quarkConnections_ {piua: null, f8b_: Blockly.Connection}
+    //     Look-up of paramIds to connections plugged into the call block.
+    // this.quarkIds_ = ['piua', 'f8b_']
+    //     Existing param IDs.
+    // Note that quarkConnections_ may include IDs that no longer exist, but
+    // which might reappear if a param is reattached in the mutator.
     var defBlock = Blockly.Procedures.getDefinition(this.getProcedureCall(),
         this.workspace);
     var mutatorOpen = defBlock && defBlock.mutator &&
         defBlock.mutator.isVisible();
-
+    if (!mutatorOpen) {
+      this.quarkConnections_ = {};
+      this.quarkIds_ = null;
+    }
+    if (!paramIds) {
+      // Reset the quarks (a mutator is about to open).
+      return;
+    }
+    // Test arguments (arrays of strings) for changes. '\n' is not a valid
+    // argument name character, so it is a valid delimiter here.
+    if (paramNames.map(Blockly.Variables.paramToString).join('\n')
+        == this.parameters_.map(Blockly.Variables.paramToString).join('\n')) {
+      // No change.
+      this.quarkIds_ = paramIds;
+      return;
+    }
+    if (paramIds.length != paramNames.length) {
+      throw RangeError('paramNames and paramIds must be the same length.');
+    }
+    this.setCollapsed(false);
+    if (!this.quarkIds_) {
+      // Initialize tracking for this block.
+      this.quarkConnections_ = {};
+      this.quarkIds_ = [];
+    }
+    // Switch off rendering while the block is rebuilt.
+    var savedRendered = this.rendered;
+    this.rendered = false;
+    // Update the quarkConnections_ with existing connections.
+    for (var i = 0; i < this.parameters_.length; i++) {
+      var input = this.getInput('ARG' + i);
+      if (input) {
+        var connection = input.connection.targetConnection;
+        this.quarkConnections_[this.quarkIds_[i]] = connection;
+        if (mutatorOpen && connection &&
+            paramIds.indexOf(this.quarkIds_[i]) == -1) {
+          // This connection should no longer be attached to this block.
+          connection.disconnect();
+          connection.getSourceBlock().bumpNeighbours();
+        }
+      }
+    }
     // Rebuild the block's arguments.
     this.parameters_ = [].concat(paramNames);
     this.updateShape_();
+    this.quarkIds_ = paramIds;
+    // Reconnect any child blocks.
+    if (this.quarkIds_) {
+      for (var i = 0; i < this.parameters_.length; i++) {
+        var quarkId = this.quarkIds_[i];
+        if (quarkId in this.quarkConnections_) {
+          var connection = this.quarkConnections_[quarkId];
+          if (!Blockly.Mutator.reconnect(connection, this, 'ARG' + i)) {
+            // Block no longer exists or has been attached elsewhere.
+            delete this.quarkConnections_[quarkId];
+          }
+        }
+      }
+    }
     // Restore rendering and show the changes.
     this.rendered = savedRendered;
-
     if (this.rendered) {
       this.render();
     }
@@ -756,6 +821,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     var name = xmlElement.getAttribute('name');
     this.renameProcedure(this.getProcedureCall(), name);
     var args = [];
+    var paramIds = [];
     for (var i = 0, childNode; (childNode = xmlElement.childNodes[i]); i++) {
       if (childNode.nodeName.toLowerCase() == 'arg') {
         args.push({
@@ -764,9 +830,10 @@ Blockly.Blocks['procedures_callnoreturn'] = {
           dist: childNode.getAttribute('dist'),
           spec: childNode.getAttribute('spec')
         });
+        paramIds.push(childNode.getAttribute('paramId'));
       }
     }
-    this.setProcedureParameters_(args);
+    this.setProcedureParameters_(args, paramIds);
   },
   /**
    * Return all variables referenced by this block.
@@ -918,6 +985,8 @@ Blockly.Blocks['procedures_callreturn'] = {
     // Tooltip is set in domToMutation.
     this.setHelpUrl(Blockly.Msg['PROCEDURES_CALLRETURN_HELPURL']);
     this.parameters_ = [];
+    this.quarkConnections_ = {};
+    this.quarkIds_ = null;
     this.previousEnabledState_ = true;
   },
 

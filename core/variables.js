@@ -432,8 +432,8 @@ Blockly.Variables.generateVariableFieldDom = function(variableModel) {
    */
   var field = Blockly.utils.xml.createElement('field');
   field.setAttribute('name', 'VAR');
-  for (key in ['type', 'dist', 'spec']) {
-    field.setAttribute(key, variableModel[key]);
+  for (var key of ['type', 'dist', 'spec']) {
+    field.setAttribute(key.toUpperCase(), variableModel[key]);
   }
   var name = Blockly.utils.xml.createTextNode(variableModel.name);
   field.appendChild(name);
@@ -565,6 +565,7 @@ Blockly.Variables.paramToString = function(param) {
     p += '&';
   } else if (param.dist == 'p') {
     p += '*';
+  }
 
   p += param.name;
 

@@ -3,6 +3,7 @@
 'use strict';
 
 Blockly.Msg["ADD_COMMENT"] = "Добавить комментарий";
+Blockly.Msg["ARRAY_GET_TITLE"] = "";  // untranslated
 Blockly.Msg["CANNOT_DELETE_VARIABLE_PROCEDURE"] = "Невозможно удалить переменную '%1', поскольку она является частью определения функции '%2'";
 Blockly.Msg["CHANGE_VALUE_TITLE"] = "Измените значение:";
 Blockly.Msg["CLEAN_UP"] = "Убрать блоки";
@@ -289,6 +290,7 @@ Blockly.Msg["NEW_VARIABLE"] = "Создать переменную…";
 Blockly.Msg["NEW_VARIABLE_TITLE"] = "Имя новой переменной:";
 Blockly.Msg["NEW_VARIABLE_TYPE_TITLE"] = "Новый тип переменной:";
 Blockly.Msg["ORDINAL_NUMBER_SUFFIX"] = "";  // untranslated
+Blockly.Msg["POINTER_GET_TITLE"] = "";  // untranslated
 Blockly.Msg["PROCEDURES_ALLOW_STATEMENTS"] = "разрешить операторы";
 Blockly.Msg["PROCEDURES_BEFORE_PARAMS"] = "с:";
 Blockly.Msg["PROCEDURES_CALLNORETURN_HELPURL"] = "https://ru.wikipedia.org/wiki/Подпрограмма";
@@ -390,10 +392,22 @@ Blockly.Msg["TEXT_TRIM_TOOLTIP"] = "Возвращает копию текста
 Blockly.Msg["TODAY"] = "Сегодня";
 Blockly.Msg["UNDO"] = "Отменить";
 Blockly.Msg["UNNAMED_KEY"] = "без названия";
+Blockly.Msg["VARIABLES_ARRAY_DECLARE_DEFAULT_NAME"] = "a";  // untranslated
+Blockly.Msg["VARIABLES_ARRAY_DECLARE_LENGTH"] = "length";  // untranslated
+Blockly.Msg["VARIABLES_ARRAY_DECLARE_TITLE"] = "array";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_DEFAULT_NAME"] = "name";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_INIT"] = "initial value";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_NAME"] = "name";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_TITLE"] = "variable";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_TOOLTIP"] = "declare variables";  // untranslated
 Blockly.Msg["VARIABLES_DEFAULT_NAME"] = "элемент";
 Blockly.Msg["VARIABLES_GET_CREATE_SET"] = "Создать блок \"присвоить\" для %1";
 Blockly.Msg["VARIABLES_GET_HELPURL"] = "https://github.com/google/blockly/wiki/Variables#get";  // untranslated
 Blockly.Msg["VARIABLES_GET_TOOLTIP"] = "Возвращает значение этой переменной.";
+Blockly.Msg["VARIABLES_POINTER_DECLARE_DEFAULT_NAME"] = "p";  // untranslated
+Blockly.Msg["VARIABLES_POINTER_DECLARE_ITERATION"] = "";  // untranslated
+Blockly.Msg["VARIABLES_POINTER_DECLARE_TITLE"] = "pointer";  // untranslated
+Blockly.Msg["VARIABLES_RETURN"] = "return ";  // untranslated
 Blockly.Msg["VARIABLES_SET"] = "присвоить %1 = %2";
 Blockly.Msg["VARIABLES_SET_CREATE_GET"] = "Создать вставку %1";
 Blockly.Msg["VARIABLES_SET_DIST_ARRAY"] = "array";  // untranslated

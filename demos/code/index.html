@@ -18,7 +18,7 @@
   <script src="../../blocks/math.js"></script>
   <script src="../../blocks/procedures.js"></script>
   <script src="../../blocks/text.js"></script>
-  <script src="../../blocks/variables_dynamic.js"></script>
+  <script src="../../blocks/variables_cpp.js"></script>
   <script src="../../javascript_compressed.js"></script>
   <script src="../../python_compressed.js"></script>
   <script src="../../php_compressed.js"></script>
@@ -395,7 +395,11 @@
       </block>
     </category>
     <sep></sep>
-    <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE_DYNAMIC"></category>
+    <category name="%{BKY_CATVARIABLES}" colour="%{BKY_VARIABLES_HUE}">
+      <block type="variables_declare"></block>
+      <block type="variables_get"></block>
+      <block type="variables_set"></block>
+    </category>
     <category name="%{BKY_CATFUNCTIONS}" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
   </xml>
 

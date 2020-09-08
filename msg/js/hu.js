@@ -3,6 +3,7 @@
 'use strict';
 
 Blockly.Msg["ADD_COMMENT"] = "Megjegyzés hozzáadása";
+Blockly.Msg["ARRAY_GET_TITLE"] = "";  // untranslated
 Blockly.Msg["CANNOT_DELETE_VARIABLE_PROCEDURE"] = "A(z) „%1” változó nem törölhető, mert része a(z) „%2” függvény definíciójának.";
 Blockly.Msg["CHANGE_VALUE_TITLE"] = "Érték módosítása:";
 Blockly.Msg["CLEAN_UP"] = "Blokkok kiürítése";
@@ -289,6 +290,7 @@ Blockly.Msg["NEW_VARIABLE"] = "Változó létrehozása…";
 Blockly.Msg["NEW_VARIABLE_TITLE"] = "Az új változó neve:";
 Blockly.Msg["NEW_VARIABLE_TYPE_TITLE"] = "Az új változó típusa:";
 Blockly.Msg["ORDINAL_NUMBER_SUFFIX"] = ".";
+Blockly.Msg["POINTER_GET_TITLE"] = "";  // untranslated
 Blockly.Msg["PROCEDURES_ALLOW_STATEMENTS"] = "utasítások engedélyezése";
 Blockly.Msg["PROCEDURES_BEFORE_PARAMS"] = "paraméterlistaː";
 Blockly.Msg["PROCEDURES_CALLNORETURN_HELPURL"] = "https://hu.wikipedia.org/wiki/F%C3%BCggv%C3%A9ny_(programoz%C3%A1s)";
@@ -390,10 +392,22 @@ Blockly.Msg["TEXT_TRIM_TOOLTIP"] = "Levágja a megadott szöveg végeiről a sz�
 Blockly.Msg["TODAY"] = "Ma";
 Blockly.Msg["UNDO"] = "Visszavonás";
 Blockly.Msg["UNNAMED_KEY"] = "névtelen";
+Blockly.Msg["VARIABLES_ARRAY_DECLARE_DEFAULT_NAME"] = "a";  // untranslated
+Blockly.Msg["VARIABLES_ARRAY_DECLARE_LENGTH"] = "length";  // untranslated
+Blockly.Msg["VARIABLES_ARRAY_DECLARE_TITLE"] = "array";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_DEFAULT_NAME"] = "name";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_INIT"] = "initial value";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_NAME"] = "name";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_TITLE"] = "variable";  // untranslated
+Blockly.Msg["VARIABLES_DECLARE_TOOLTIP"] = "declare variables";  // untranslated
 Blockly.Msg["VARIABLES_DEFAULT_NAME"] = "változó";
 Blockly.Msg["VARIABLES_GET_CREATE_SET"] = "Készíts \"%1=\"";
 Blockly.Msg["VARIABLES_GET_HELPURL"] = "https://github.com/google/blockly/wiki/Variables#get";  // untranslated
 Blockly.Msg["VARIABLES_GET_TOOLTIP"] = "A változó értékét adja eredményül.";
+Blockly.Msg["VARIABLES_POINTER_DECLARE_DEFAULT_NAME"] = "p";  // untranslated
+Blockly.Msg["VARIABLES_POINTER_DECLARE_ITERATION"] = "";  // untranslated
+Blockly.Msg["VARIABLES_POINTER_DECLARE_TITLE"] = "pointer";  // untranslated
+Blockly.Msg["VARIABLES_RETURN"] = "return ";  // untranslated
 Blockly.Msg["VARIABLES_SET"] = "%1 %2";
 Blockly.Msg["VARIABLES_SET_CREATE_GET"] = "Készíts \"%1\"";
 Blockly.Msg["VARIABLES_SET_DIST_ARRAY"] = "array";  // untranslated

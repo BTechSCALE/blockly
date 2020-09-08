@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2020-09-06 10:43:08.267456",
+		"lastupdated": "2020-09-08 23:21:22.112788",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -414,5 +414,19 @@
 	"VARIABLES_SET_DIST_VARIABLE": "variable",
 	"VARIABLES_SET_DIST_REFERENCE": "reference",
 	"VARIABLES_SET_DIST_POINTER": "pointer",
-	"VARIABLES_SET_DIST_ARRAY": "array"
+	"VARIABLES_SET_DIST_ARRAY": "array",
+	"VARIABLES_DECLARE_TITLE": "variable",
+	"VARIABLES_DECLARE_NAME": "name",
+	"VARIABLES_DECLARE_INIT": "initial value",
+	"VARIABLES_DECLARE_DEFAULT_NAME": "name",
+	"VARIABLES_DECLARE_TOOLTIP": "declare variables",
+	"VARIABLES_POINTER_DECLARE_TITLE": "pointer",
+	"VARIABLES_POINTER_DECLARE_ITERATION": "",
+	"VARIABLES_POINTER_DECLARE_DEFAULT_NAME": "p",
+	"VARIABLES_ARRAY_DECLARE_TITLE": "array",
+	"VARIABLES_ARRAY_DECLARE_LENGTH": "length",
+	"VARIABLES_ARRAY_DECLARE_DEFAULT_NAME": "a",
+	"VARIABLES_RETURN": "return ",
+	"POINTER_GET_TITLE": "",
+	"ARRAY_GET_TITLE": ""
 }

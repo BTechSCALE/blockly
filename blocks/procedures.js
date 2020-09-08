@@ -276,8 +276,8 @@ Blockly.Blocks['procedures_defnoreturn'] = {
    * @return {!Array.<string>} List of variable info.
    * @this {Blockly.Block}
    */
-  getVars: function() {
-    return this.parameters_;
+  getParams: function() {
+    return this.parameters_.map(function(p) { return Object.assign({}, p)});
   },
   /**
    * Return all variables referenced by this block.
